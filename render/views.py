@@ -1,7 +1,7 @@
 from django.http import HttpResponse, JsonResponse, FileResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_POST, require_GET
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from rembg import remove
+# from rembg import remove
 from io import BytesIO
 
 @require_GET
@@ -21,10 +21,10 @@ def remove_background(request):
         input_data = uploaded_file.read()
       
         # 使用 rembg 处理
-        output_data = remove(input_data)
+        # output_data = remove(input_data)
       
         # 构建内存文件流
-        output_buffer = BytesIO(output_data)
+        output_buffer = BytesIO(input_data)
         output_buffer.seek(0)
       
         # 返回文件流响应
